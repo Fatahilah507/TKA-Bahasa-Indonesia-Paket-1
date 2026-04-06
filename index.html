@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Soal Literasi 20 Soal - Model AKM</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.8; background-color: #f4f4f4; padding: 20px; color: #000; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 50px; border: 1px solid #000; box-shadow: 4px 4px 0px #000; }
+        h1 { text-align: center; text-decoration: underline; margin-bottom: 40px; text-transform: uppercase; }
+        h2 { background: #333; color: #fff; padding: 10px; font-size: 1.2em; margin-top: 40px; border-left: 10px solid #000; }
+        .passage { background: #fafafa; padding: 30px; border: 1px solid #ccc; margin-bottom: 30px; text-align: justify; font-size: 1.1em; }
+        .question-item { margin-bottom: 40px; border-bottom: 2px dashed #eee; padding-bottom: 25px; }
+        .q-text { font-weight: bold; margin-bottom: 12px; display: block; }
+        
+        /* Checkbox Style (Kompleks) */
+        .check-container { border: 1px solid #000; margin-top: 10px; background: #fff; }
+        .check-row { display: flex; border-bottom: 1px solid #000; }
+        .check-row:last-child { border-bottom: none; }
+        .check-box { width: 45px; border-right: 1px solid #000; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .check-label { padding: 12px; font-size: 0.95em; flex-grow: 1; }
+        
+        /* Table Style */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        table, th, td { border: 1px solid black; }
+        th { background-color: #eeeeee; padding: 10px; font-size: 0.9em; }
+        td { padding: 10px; font-size: 0.95em; }
+        .center { text-align: center; width: 80px; }
+
+        .btn-submit { display: block; width: 100%; padding: 20px; background: #000; color: #fff; border: none; font-size: 20px; font-weight: bold; cursor: pointer; margin-top: 50px; }
+        #final-score { margin-top: 30px; text-align: center; font-size: 1.5em; font-weight: bold; padding: 20px; border: 2px solid #000; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>PAKET EVALUASI LITERASI MEMBACA</h1>
+
+    <h2>TEKS I: KULINER TRADISIONAL (PUISI & PROSEDUR)</h2>
+    <div class="passage">
+        <p><strong>Senandung Mentari Pagi</strong><br>
+        Mentari pagi <em>mengetuk jendela</em>,<br>
+        membangunkan embun yang terlelap di pucuk daun.<br>
+        Burung-burung bernyanyi lagu rindu,<br>
+        menyambut aroma jahe yang mulai menyerbak dari dapur kakek.</p>
+        
+        <p>Di meja kayu, tersedia <strong>buah-buahan</strong> segar seperti salak pondoh dan jeruk keprok. Kakek sedang menyiapkan <strong>Wedang Jahe Susu</strong>. Jahe emprit dibakar dan dimemarkan agar sari pedasnya keluar maksimal, lalu direbus bersama kayu manis. Setelah air berubah kecokelatan, kakek mencampurkannya dengan susu kental manis. Sebagai pendamping, kakek menggoreng <strong>Tempe Kemul</strong>. Adonannya dibuat dari campuran tepung beras dan tepung tapioka dengan perbandingan tiga banding satu, ditambah bumbu kunyit yang memberikan warna kuning keemasan serta irisan daun kucai yang melimpah.</p>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">1. Apa jenis majas yang digunakan pada baris puisi "Mentari pagi mengetuk jendela"?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q1" value="A"> A. Majas Metafora<br>
+            <input type="radio" name="q1" value="B"> B. Majas Personifikasi<br>
+            <input type="radio" name="q1" value="C"> C. Majas Hiperbola<br>
+            <input type="radio" name="q1" value="D"> D. Majas Ironi
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">2. Berdasarkan teks, manakah yang termasuk ke dalam kosakata khusus untuk kategori "buah-buahan"?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q2" value="A"> A. Jahe emprit dan kayu manis.<br>
+            <input type="radio" name="q2" value="B"> B. Salak pondoh dan jeruk keprok.<br>
+            <input type="radio" name="q2" value="C"> C. Tepung beras dan tepung tapioka.<br>
+            <input type="radio" name="q2" value="D"> D. Tempe kemul dan susu kental manis.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">3. Manakah pernyataan yang tepat mengenai pembuatan Tempe Kemul dan Wedang Jahe? Pilihlah jawaban yang benar! Jawaban benar lebih dari satu.</span>
+        <div class="check-container">
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q3" value="A"></div>
+                <div class="check-label">Jahe harus dibakar dan dimemarkan terlebih dahulu agar aroma dan sari pedasnya keluar maksimal.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q3" value="B"></div>
+                <div class="check-label">Warna kuning keemasan pada adonan Tempe Kemul didapatkan dari campuran susu kental manis.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q3" value="C"></div>
+                <div class="check-label">Adonan Tempe Kemul menggunakan campuran tepung beras dan tapioka dengan perbandingan tiga banding satu.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">4. Apa tujuan utama penyair menggunakan kalimat "membangunkan embun yang terlelap"?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q4" value="A"> A. Menggambarkan suasana pagi yang tenang dan damai secara imajinatif.<br>
+            <input type="radio" name="q4" value="B"> B. Memberikan informasi ilmiah mengenai proses penguapan air di pagi hari.<br>
+            <input type="radio" name="q4" value="C"> C. Menjelaskan bahwa embun sangat sulit hilang jika tidak dibangunkan mentari.<br>
+            <input type="radio" name="q4" value="D"> D. Mengajak pembaca untuk segera bangun pagi agar bisa meminum wedang jahe.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">5. Tentukan Sesuai atau Tidak Sesuai berdasarkan teks kuliner tersebut!</span>
+        <table>
+            <tr><th>Pernyataan</th><th class="center">Sesuai</th><th class="center">Tidak Sesuai</th></tr>
+            <tr><td>Wedang jahe direbus bersama kayu manis hingga warna airnya berubah menjadi kecokelatan.</td><td class="center"><input type="radio" name="q5a" value="S"></td><td class="center"><input type="radio" name="q5a" value="TS"></td></tr>
+            <tr><td>Irisan daun kucai digunakan dalam adonan tempe kemul untuk memberikan ciri khas rasa dan aroma.</td><td class="center"><input type="radio" name="q5b" value="S"></td><td class="center"><input type="radio" name="q5b" value="TS"></td></tr>
+            <tr><td>Gula merah dimasukkan ke dalam gelas bersamaan dengan susu kental manis sebelum air jahe dituang.</td><td class="center"><input type="radio" name="q5c" value="S"></td><td class="center"><input type="radio" name="q5c" value="TS"></td></tr>
+        </table>
+    </div>
+
+    <h2>TEKS II: LINGKUNGAN DAN TEKNOLOGI MASA DEPAN</h2>
+    <div class="passage">
+        <p>Masalah lingkungan di wilayah pesisir kini mendapat perhatian serius melalui rehabilitasi hutan mangrove. Akar bakau yang rapat berfungsi sebagai benteng alami untuk mencegah abrasi dan menjadi tempat berkembang biak fauna laut. Namun, kerusakan mangrove akibat alih fungsi lahan memicu terjadinya intrusi air laut yang menyebabkan air sumur warga menjadi payau. Di sisi lain, masyarakat mulai beralih ke energi bersih melalui pemasangan <strong>panel surya atap</strong>. Teknologi ini menggunakan sel fotovoltaik untuk mengubah sinar matahari menjadi energi listrik. Meskipun biaya investasinya cukup tinggi, panel surya mampu bertahan hingga dua puluh lima tahun dan mengurangi tagihan listrik bulanan secara signifikan.</p>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">6. Apa dampak buruk yang terjadi jika hutan mangrove di wilayah pesisir mengalami kerusakan permanen?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q6" value="A"> A. Tanah di pinggir pantai akan semakin luas karena air laut surut.<br>
+            <input type="radio" name="q6" value="B"> B. Terjadi intrusi air laut yang membuat cadangan air tanah warga menjadi payau.<br>
+            <input type="radio" name="q6" value="C"> C. Produksi energi listrik dari panel surya atap akan menurun drastis.<br>
+            <input type="radio" name="q6" value="D"> D. Populasi ikan di laut lepas akan meningkat karena tidak ada pemangsa di mangrove.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">7. Berdasarkan teks, mengapa panel surya disebut sebagai investasi jangka panjang yang menguntungkan?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q7" value="A"> A. Karena biaya pemasangan awalnya sangat murah dan terjangkau semua kalangan.<br>
+            <input type="radio" name="q7" value="B"> B. Karena dapat menghasilkan air bersih melalui proses fotovoltaik yang canggih.<br>
+            <input type="radio" name="q7" value="C"> C. Karena memiliki masa pakai yang lama mencapai dua puluh lima tahun.<br>
+            <input type="radio" name="q7" value="D"> D. Karena panel surya tidak membutuhkan sinar matahari untuk menghasilkan listrik.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">8. Apa saja fungsi utama dari hutan mangrove bagi ekosistem dan masyarakat sekitar? Pilihlah jawaban yang benar! Jawaban benar lebih dari satu.</span>
+        <div class="check-container">
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q8" value="A"></div>
+                <div class="check-label">Berperan sebagai pelindung alami daratan dari pengikisan tanah atau abrasi akibat gelombang laut.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q8" value="B"></div>
+                <div class="check-label">Menjadi tempat yang aman bagi berbagai jenis fauna laut untuk berlindung dan berkembang biak.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q8" value="C"></div>
+                <div class="check-label">Mengubah air laut yang asin menjadi air tawar yang bisa langsung dikonsumsi warga.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">9. Istilah "sel fotovoltaik" dalam teks tersebut merujuk pada...</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q9" value="A"> A. Alat untuk menyaring air payau menjadi air bersih.<br>
+            <input type="radio" name="q9" value="B"> B. Komponen penyusun panel surya yang mengubah cahaya menjadi energi listrik.<br>
+            <input type="radio" name="q9" value="C"> C. Jenis tanaman bakau baru yang tahan terhadap limbah industri.<br>
+            <input type="radio" name="q9" value="D"> D. Baterai penyimpan energi listrik yang tahan selama dua puluh lima tahun.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">10. Tentukan Sesuai atau Tidak Sesuai berdasarkan teks lingkungan dan teknologi!</span>
+        <table>
+            <tr><th>Pernyataan</th><th class="center">Sesuai</th><th class="center">Tidak Sesuai</th></tr>
+            <tr><td>Akar tanaman bakau yang rapat berfungsi menahan hantaman gelombang laut ke daratan.</td><td class="center"><input type="radio" name="q10a" value="S"></td><td class="center"><input type="radio" name="q10a" value="TS"></td></tr>
+            <tr><td>Investasi panel surya atap tidak mampu membantu mengurangi tagihan listrik bulanan masyarakat.</td><td class="center"><input type="radio" name="q10b" value="S"></td><td class="center"><input type="radio" name="q10b" value="TS"></td></tr>
+            <tr><td>Alih fungsi lahan mangrove menjadi faktor penyebab berkurangnya luas hutan bakau di pesisir.</td><td class="center"><input type="radio" name="q10c" value="S"></td><td class="center"><input type="radio" name="q10c" value="TS"></td></tr>
+        </table>
+    </div>
+
+    <h2>TEKS III: KESEHATAN DAN GAYA HIDUP DIGITAL</h2>
+    <div class="passage">
+        <p>Paparan cahaya biru dari layar gawai dapat menghambat produksi hormon <strong>melatonin</strong>, yang berperan penting dalam mengatur siklus tidur manusia. Kurang tidur yang berkualitas akan berdampak buruk pada fungsi kognitif otak dan meningkatkan risiko gangguan mental. Selain itu, kebiasaan mengonsumsi makanan dengan kadar gula tambahan tinggi juga menjadi ancaman kesehatan. Gula tambahan sering disebut sebagai <strong>kalori kosong</strong> karena hanya memberikan energi tanpa nutrisi esensial. Pada anak-anak, lonjakan gula yang cepat diikuti penurunan drastis dapat menyebabkan <em>sugar crash</em>, yang membuat mereka menjadi lemas, mudah marah, dan sulit berkonsentrasi di sekolah.</p>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">11. Apa fungsi utama hormon melatonin bagi tubuh manusia menurut teks?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q11" value="A"> A. Meningkatkan konsentrasi anak saat sedang belajar di sekolah.<br>
+            <input type="radio" name="q11" value="B"> B. Mengatur ritme atau siklus waktu tidur dan bangun seseorang.<br>
+            <input type="radio" name="q11" value="C"> C. Menghasilkan kalori tambahan untuk menambah energi tubuh.<br>
+            <input type="radio" name="q11" value="D"> D. Melindungi mata dari dampak negatif paparan cahaya biru gawai.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">12. Mengapa gula tambahan dalam produk makanan sering disebut sebagai "kalori kosong"?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q12" value="A"> A. Karena tidak memiliki rasa manis meskipun mengandung banyak kalori.<br>
+            <input type="radio" name="q12" value="B"> B. Karena memberikan asupan energi tanpa disertai nutrisi atau gizi esensial.<br>
+            <input type="radio" name="q12" value="C"> C. Karena kalori tersebut akan langsung hilang saat anak-anak sedang tidur.<br>
+            <input type="radio" name="q12" value="D"> D. Karena kandungan gulanya telah dibuang selama proses produksi di pabrik.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">13. Manakah dampak negatif dari kurang tidur yang berkualitas dan konsumsi gula berlebih? Pilihlah jawaban yang benar! Jawaban benar lebih dari satu.</span>
+        <div class="check-container">
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q13" value="A"></div>
+                <div class="check-label">Penurunan fungsi kognitif otak dalam memproses informasi dan konsolidasi memori.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q13" value="B"></div>
+                <div class="check-label">Terjadinya kondisi sugar crash yang menyebabkan anak menjadi lemas dan mudah marah.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q13" value="C"></div>
+                <div class="check-label">Meningkatkan produksi hormon melatonin secara alami saat terpapar cahaya layar gawai.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">14. Istilah "sugar crash" dalam teks tersebut menggambarkan kondisi...</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q14" value="A"> A. Kecanduan anak terhadap rasa manis buah-buahan segar.<br>
+            <input type="radio" name="q14" value="B"> B. Penurunan energi secara drastis setelah kadar gula darah sempat melonjak tinggi.<br>
+            <input type="radio" name="q14" value="C"> C. Kerusakan gigi pada anak akibat terlalu banyak mengonsumsi permen cokelat.<br>
+            <input type="radio" name="q14" value="D"> D. Proses pembersihan gula di dalam tubuh melalui olahraga yang intensif.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">15. Tentukan Sesuai atau Tidak Sesuai berdasarkan teks kesehatan dan gaya hidup!</span>
+        <table>
+            <tr><th>Pernyataan</th><th class="center">Sesuai</th><th class="center">Tidak Sesuai</th></tr>
+            <tr><td>Paparan cahaya biru dari layar laptop atau ponsel dapat memicu gangguan pada siklus tidur.</td><td class="center"><input type="radio" name="q15a" value="S"></td><td class="center"><input type="radio" name="q15a" value="TS"></td></tr>
+            <tr><td>Kurang tidur secara kronis dapat meningkatkan risiko timbulnya gangguan kesehatan mental.</td><td class="center"><input type="radio" name="q15b" value="S"></td><td class="center"><input type="radio" name="q15b" value="TS"></td></tr>
+            <tr><td>Sugar crash adalah kondisi di mana anak-anak menjadi sangat aktif dan bersemangat setelah makan.</td><td class="center"><input type="radio" name="q15c" value="S"></td><td class="center"><input type="radio" name="q15c" value="TS"></td></tr>
+        </table>
+    </div>
+
+    <h2>TEKS IV: SURAT DARI DESA (NARASI)</h2>
+    <div class="passage">
+        <p><strong>Jogja, 12 April 2026</strong><br>
+        Kepada Sahabatku, Aris di Surabaya.</p>
+        <p>Halo, Ris! Aku menulis surat ini untuk mengajakmu berkunjung ke desa kakekku di lereng gunung Merapi. Di sini, suasana sangat tenang dan asri. Angin pegunungan selalu berhasil <span style="font-weight:bold;">memeluk erat</span> tubuhku setiap pagi, memberikan rasa tenang yang tak tertandingi. Aku juga akan mengajakmu memanen beragam hasil kebun. Kita bisa mencicipi buah-buahan segar langsung dari pohonnya. Ada salak pondoh yang manis dan mangga arumanis yang harum. Pengalaman ini pasti akan menjadi <span style="font-weight:bold;">buah tangan</span> cerita yang menarik saat kita kembali ke kota nanti. Jangan lupa bawa kamera ya, Ris! Sampai jumpa bulan depan!</p>
+        <p>Salam hangat, Bayu.</p>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">16. Apa jenis majas yang digunakan Bayu pada frasa "memeluk erat" dalam suratnya?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q16" value="A"> A. Majas Personifikasi<br>
+            <input type="radio" name="q16" value="B"> B. Majas Metafora<br>
+            <input type="radio" name="q16" value="C"> C. Majas Hiperbola<br>
+            <input type="radio" name="q16" value="D"> D. Majas Ironi
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">17. Apakah makna dari ungkapan "buah tangan" pada kalimat terakhir surat Bayu?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q17" value="A"> A. Buah yang dipetik langsung menggunakan tangan sendiri.<br>
+            <input type="radio" name="q17" value="B"> B. Oleh-oleh atau hasil yang dibawa setelah berkunjung.<br>
+            <input type="radio" name="q17" value="C"> C. Jenis makanan ringan yang terbuat dari olahan buah.<br>
+            <input type="radio" name="q17" value="D"> D. Kerajinan tangan yang bentuknya menyerupai buah.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">18. Manakah informasi yang sesuai dengan isi surat pribadi Bayu untuk Aris? Pilihlah jawaban yang benar! Jawaban benar lebih dari satu.</span>
+        <div class="check-container">
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q18" value="A"></div>
+                <div class="check-label">Bayu mengajak Aris untuk berlibur ke desa kakeknya yang terletak di lereng gunung Merapi.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q18" value="B"></div>
+                <div class="check-label">Aris diminta untuk membawa kamera guna mengabadikan momen selama berkunjung di desa.</div>
+            </div>
+            <div class="check-row">
+                <div class="check-box"><input type="checkbox" name="q18" value="C"></div>
+                <div class="check-label">Desa kakek Bayu berada di pusat kota Surabaya sehingga Aris tidak perlu melakukan perjalanan jauh.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">19. Berdasarkan isi surat, siapa yang menjadi pengirim dan penerima surat tersebut?</span>
+        <div style="margin-left:20px">
+            <input type="radio" name="q19" value="A"> A. Pengirim: Aris, Penerima: Bayu.<br>
+            <input type="radio" name="q19" value="B"> B. Pengirim: Bayu, Penerima: Aris.<br>
+            <input type="radio" name="q19" value="C"> C. Pengirim: Kakek, Penerima: Bayu.<br>
+            <input type="radio" name="q19" value="D"> D. Pengirim: Bayu, Penerima: Kakek.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <span class="q-text">20. Tentukan Sesuai atau Tidak Sesuai berdasarkan isi surat dari desa!</span>
+        <table>
+            <tr><th>Pernyataan</th><th class="center">Sesuai</th><th class="center">Tidak Sesuai</th></tr>
+            <tr><td>Bayu berencana mengajak Aris memanen buah salak pondoh dan mangga arumanis di kebun kakek.</td><td class="center"><input type="radio" name="q20a" value="S"></td><td class="center"><input type="radio" name="q20a" value="TS"></td></tr>
+            <tr><td>Suasana desa di lereng Merapi digambarkan sangat berisik karena banyak kendaraan bermotor.</td><td class="center"><input type="radio" name="q20b" value="S"></td><td class="center"><input type="radio" name="q20b" value="TS"></td></tr>
+            <tr><td>Surat tersebut ditulis oleh Bayu pada tanggal dua belas April tahun dua ribu dua puluh enam.</td><td class="center"><input type="radio" name="q20c" value="S"></td><td class="center"><input type="radio" name="q20c" value="TS"></td></tr>
+        </table>
+    </div>
+
+    <button class="btn-submit" onclick="cekSemuaJawaban()">SIMPAN DAN LIHAT HASIL</button>
+    
+    <div id="final-score"></div>
+
+    <div id="kunci" style="margin-top:50px; background:#f9f9f9; padding:20px; border:1px solid #ddd; display:none;">
+        <h3 style="text-align:center">KUNCI JAWABAN</h3>
+        <p>1.B | 2.B | 3.A,C | 4.A | 5.S, S, TS | 6.B | 7.C | 8.A,B | 9.B | 10.S, TS, S | 11.B | 12.B | 13.A,B | 14.B | 15.S, S, TS | 16.A | 17.B | 18.A,B | 19.B | 20.S, TS, S</p>
+    </div>
+</div>
+
+<script>
+    function cekSemuaJawaban() {
+        let score = 0;
+        
+        // Logic Jawaban per soal
+        if(document.querySelector('input[name="q1"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q2"]:checked')?.value === "B") score++;
+        if(document.getElementsByName('q3')[0].checked && !document.getElementsByName('q3')[1].checked && document.getElementsByName('q3')[2].checked) score++;
+        if(document.querySelector('input[name="q4"]:checked')?.value === "A") score++;
+        if(document.querySelector('input[name="q5a"]:checked')?.value === "S" && document.querySelector('input[name="q5b"]:checked')?.value === "S" && document.querySelector('input[name="q5c"]:checked')?.value === "TS") score++;
+        
+        if(document.querySelector('input[name="q6"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q7"]:checked')?.value === "C") score++;
+        if(document.getElementsByName('q8')[0].checked && document.getElementsByName('q8')[1].checked && !document.getElementsByName('q8')[2].checked) score++;
+        if(document.querySelector('input[name="q9"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q10a"]:checked')?.value === "S" && document.querySelector('input[name="q10b"]:checked')?.value === "TS" && document.querySelector('input[name="q10c"]:checked')?.value === "S") score++;
+
+        if(document.querySelector('input[name="q11"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q12"]:checked')?.value === "B") score++;
+        if(document.getElementsByName('q13')[0].checked && document.getElementsByName('q13')[1].checked && !document.getElementsByName('q13')[2].checked) score++;
+        if(document.querySelector('input[name="q14"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q15a"]:checked')?.value === "S" && document.querySelector('input[name="q15b"]:checked')?.value === "S" && document.querySelector('input[name="q15c"]:checked')?.value === "TS") score++;
+
+        if(document.querySelector('input[name="q16"]:checked')?.value === "A") score++;
+        if(document.querySelector('input[name="q17"]:checked')?.value === "B") score++;
+        if(document.getElementsByName('q18')[0].checked && document.getElementsByName('q18')[1].checked && !document.getElementsByName('q18')[2].checked) score++;
+        if(document.querySelector('input[name="q19"]:checked')?.value === "B") score++;
+        if(document.querySelector('input[name="q20a"]:checked')?.value === "S" && document.querySelector('input[name="q20b"]:checked')?.value === "TS" && document.querySelector('input[name="q20c"]:checked')?.value === "S") score++;
+
+        const resDiv = document.getElementById('final-score');
+        resDiv.style.display = "block";
+        resDiv.innerHTML = "Total Skor Literasi: " + (score * 5) + " / 100 <br> (" + score + " soal dijawab dengan benar)";
+        resDiv.style.backgroundColor = score >= 15 ? "#d4edda" : "#f8d7da";
+        
+        document.getElementById('kunci').style.display = "block";
+    }
+</script>
+
+</body>
+</html>
