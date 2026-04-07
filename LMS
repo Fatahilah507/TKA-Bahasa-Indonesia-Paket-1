@@ -3,147 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Latihan Literasi</title>
+    <title>Ujian Latihan Matematika Kelas 6</title>
     <style>
-        :root { --primary: #2c3e50; --success: #27ae60; --bg: #f5f6fa; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .hidden { display: none; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        .packet-card { border: 2px solid var(--primary); padding: 20px; margin: 10px 0; border-radius: 10px; cursor: pointer; transition: 0.3s; }
-        .packet-card:hover { background: #ecf0f1; }
-        .option { display: block; padding: 10px; border: 1px solid #ddd; margin: 5px 0; border-radius: 5px; cursor: pointer; }
-        .option.correct { background: #d4edda; border-color: #28a745; }
-        .option.wrong { background: #f8d7da; border-color: #dc3545; }
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --success: #10b981;
+            --white: #ffffff;
+            --bg: #f1f5f9;
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg);
+        }
+
+        .container {
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            min-height: 100vh; padding: 20px; box-sizing: border-box;
+        }
+
+        .header-info {
+            width: 100%; max-width: 850px;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px; font-weight: bold; color: var(--secondary);
+        }
+
+        .progress-bar-container {
+            width: 100%; max-width: 850px;
+            height: 12px; background: #e2e8f0;
+            border-radius: 6px; margin-bottom: 25px; overflow: hidden;
+        }
+
+        #progress-fill {
+            height: 100%; width: 0%;
+            background: var(--primary); transition: width 0.4s ease;
+        }
+
+        .quiz-card {
+            background: var(--white); width: 100%; max-width: 850px;
+            padding: 40px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-sizing: border-box; display: flex; flex-direction: column;
+            min-height: 500px;
+        }
+
+        .q-number-label {
+            font-size: 2rem; color: var(--primary);
+            margin-bottom: 5px; font-weight: 800;
+        }
+
+        .type-badge {
+            display: inline-block; padding: 6px 15px;
+            background: #eff6ff; color: var(--primary);
+            font-size: 0.85rem; border-radius: 6px;
+            text-transform: uppercase; margin-bottom: 20px; font-weight: 700;
+        }
+
+        .question-text {
+            font-size: 1.25rem; line-height: 1.7;
+            margin-bottom: 30px; color: #1e293b;
+        }
+
+        .options-group { display: flex; flex-direction: column; gap: 12px; }
+
+        .option-btn {
+            padding: 18px 25px; border: 2px solid #e2e8f0;
+            border-radius: 12px; cursor: pointer; font-size: 1.05rem;
+            transition: all 0.2s; background: var(--white);
+            text-align: left; line-height: 1.4;
+        }
+
+        .option-btn:hover { border-color: var(--primary); background: #f8fafc; }
+        .option-btn.selected { border-color: var(--primary); background: #e0e7ff; font-weight: 600; }
+
+        .action-area { margin-top: auto; display: flex; gap: 12px; padding-top: 30px; }
+
+        .btn {
+            flex: 1; padding: 20px; border-radius: 12px; border: none;
+            font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s;
+        }
+
+        .btn-next { background: var(--primary); color: white; }
+        .btn-skip { background: var(--secondary); color: white; }
+        .btn-submit { background: var(--success); color: white; display: none; }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        #result-screen { display: none; text-align: center; background: white; padding: 60px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 600px;}
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div id="page-login">
-        <h2>Identitas Siswa</h2>
-        <input type="text" id="input-nama" placeholder="Nama Lengkap" required>
-        <input type="text" id="input-kelas" placeholder="Kelas" required>
-        <input type="number" id="input-absen" placeholder="Nomor Absen" required>
-        <button class="btn" onclick="goToMenu()">Masuk ke Menu Paket</button>
-    </div>
-
-    <div id="page-menu" class="hidden">
-        <h2>Pilih Paket Latihan</h2>
-        <div class="packet-card" onclick="startQuiz('A')">
-            <h3>PAKET A</h3>
-            <p>Materi: Kuliner Tradisional & Lingkungan</p>
+    <div id="quiz-wrapper" style="width: 100%; max-width: 850px;">
+        <div class="header-info">
+            <span id="current-q-count">Soal 1 dari 10</span>
+            <span>Ujian Mandiri</span>
         </div>
-        <div class="packet-card" onclick="startQuiz('B')">
-            <h3>PAKET B</h3>
-            <p>Materi: Kesehatan Mental & Sastra</p>
+        <div class="progress-bar-container">
+            <div id="progress-fill"></div>
+        </div>
+
+        <div class="quiz-card">
+            <div class="q-number-label" id="display-number">SOAL #1</div>
+            <div id="q-badge" class="type-badge">Tipe Soal</div>
+            <div id="q-text" class="question-text">Memuat pertanyaan...</div>
+            
+            <div id="q-options" class="options-group"></div>
+
+            <div class="action-area">
+                <button id="btn-skip" class="btn btn-skip" onclick="saveAndNext(false)">Lewati Soal</button>
+                <button id="btn-next" class="btn btn-next" onclick="saveAndNext(true)">Lanjut ke Berikutnya</button>
+                <button id="btn-submit" class="btn btn-submit" onclick="finalSubmit()">Kirim Semua Jawaban</button>
+            </div>
         </div>
     </div>
 
-    <div id="page-quiz" class="hidden">
-        <h2 id="quiz-title"></h2>
-        <div id="question-area"></div>
-        <div id="quiz-nav" style="margin-top:20px;"></div>
-    </div>
-
-    <div id="page-result" class="hidden">
-        <h2 style="text-align:center">Hasil Akhir</h2>
-        <div id="score-text" style="font-size: 2em; text-align:center; font-weight:bold;"></div>
-        <p id="status-upload" style="text-align:center; color: var(--success);">Mengirim data ke guru...</p>
-        <button class="btn" onclick="location.reload()">Selesai & Keluar</button>
+    <div id="result-screen">
+        <h1 style="font-size: 3rem; margin-bottom: 10px; color: var(--primary);">HASIL UJIAN 🏆</h1>
+        <div style="font-size: 5rem; font-weight: 800; margin: 20px 0;" id="score-val">0</div>
+        <p id="final-stats" style="font-size: 1.2rem; color: #64748b; margin-bottom: 30px;"></p>
+        <button class="btn btn-next" onclick="location.reload()" style="max-width: 250px;">Ulangi Ujian</button>
     </div>
 </div>
 
 <script>
-    // MASUKKAN URL GOOGLE APP SCRIPT ANDA DI SINI
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzOo9VhCORo04jRKLuay3V-94_me67zk9PzODXBhH8E7Ms6vAF0aVSTZUrBOq51_Na5/exec";
-
-    let currentUser = {};
-    let currentPacket = "";
-    let score = 0;
-    let currentQuestionIndex = 0;
-
-    // Database Soal Sederhana (Bisa Anda tambah sesuai keinginan)
-    const allQuestions = {
-        'A': [
-            { q: "Apa tujuan jahe dimemarkan?", opt: ["Agar lunak", "Agar sari keluar", "Agar bening"], ans: 1 },
-            { q: "Rasio tepung tempe kemul?", opt: ["1:1", "2:1", "3:1"], ans: 2 }
-        ],
-        'B': [
-            { q: "Apa itu detoks digital?", opt: ["Hapus sosmed", "Istirahat gawai", "Beli HP"], ans: 1 },
-            { q: "Hormon tidur adalah...", opt: ["Insulin", "Melatonin", "Kortisol"], ans: 1 }
-        ]
-    };
-
-    function goToMenu() {
-        currentUser.nama = document.getElementById('input-nama').value;
-        currentUser.kelas = document.getElementById('input-kelas').value;
-        currentUser.absen = document.getElementById('input-absen').value;
-
-        if(!currentUser.nama) return alert("Isi nama dulu!");
-        document.getElementById('page-login').classList.add('hidden');
-        document.getElementById('page-menu').classList.remove('hidden');
-    }
-
-    function startQuiz(packet) {
-        currentPacket = packet;
-        currentQuestionIndex = 0;
-        score = 0;
-        document.getElementById('page-menu').classList.add('hidden');
-        document.getElementById('page-quiz').classList.remove('hidden');
-        document.getElementById('quiz-title').innerText = "Mengerjakan Paket " + packet;
-        showQuestion();
-    }
-
-    function showQuestion() {
-        const qData = allQuestions[currentPacket][currentQuestionIndex];
-        let html = `<p><b>Soal ${currentQuestionIndex + 1}:</b> ${qData.q}</p>`;
-        qData.opt.forEach((o, i) => {
-            html += `<div class="option" onclick="handleAnswer(${i})">${o}</div>`;
-        });
-        document.getElementById('question-area').innerHTML = html;
-    }
-
-    function handleAnswer(selected) {
-        const correct = allQuestions[currentPacket][currentQuestionIndex].ans;
-        const options = document.getElementsByClassName('option');
-        
-        if(selected === correct) {
-            options[selected].classList.add('correct');
-            score += (100 / allQuestions[currentPacket].length);
-        } else {
-            options[selected].classList.add('wrong');
-            options[correct].classList.add('correct');
+    const questions = [
+        { 
+            type: "Pilihan Ganda", 
+            q: "Sebuah bak mandi berbentuk kubus memiliki volume awal sebesar 24 m³. Bak tersebut akan dimodifikasi menjadi bentuk balok dengan ketentuan: panjangnya dibuat menjadi 3 kali lipat dari ukuran semula, lebarnya dibuat menjadi setengah (1/2) dari ukuran semula, dan tingginya tetap. Berapakah volume bak mandi yang baru?", 
+            options: ["12 m³", "24 m³", "36 m³"], 
+            a: "36 m³"
+        },
+        { 
+            type: "Pilihan Ganda", 
+            q: "Seorang pengendara motor berangkat dari kota P ke kota Q yang berjarak 120 km. Kecepatan rata-rata motor tersebut adalah 60 km/jam. Jika ia berangkat pukul 08.15 dan sempat beristirahat di jalan selama 20 menit, pada pukul berapakah ia tiba di kota Q?", 
+            options: ["Pukul 10.15", "Pukul 10.35", "Pukul 10.55"], 
+            a: "Pukul 10.35"
+        },
+        { 
+            type: "Pilihan Ganda", 
+            q: "Sekarang adalah tanggal 26 April. Kakak dijadwalkan akan mengikuti lomba lari pada tanggal 15 Mei mendatang. Berapakah total hari yang tersisa bagi Kakak untuk berlatih jika dihitung mulai besok?", 
+            options: ["18 hari", "19 hari", "20 hari"], 
+            a: "19 hari"
+        },
+        { 
+            type: "Pilihan Ganda Kompleks", 
+            q: "Volume sebuah wadah penyimpanan adalah V. Manakah kombinasi perubahan dimensi berikut yang akan menghasilkan volume TIGA kali lipat (3V)? (Pilih semua yang menurutmu benar)", 
+            options: ["Panjang dikali 6, lebar tetap, tinggi dikali 1/2", "Panjang tetap, lebar dikali 3, tinggi tetap", "Panjang dikali 1,5, lebar dikali 2, tinggi tetap"], 
+            a: ["Panjang dikali 6, lebar tetap, tinggi dikali 1/2", "Panjang tetap, lebar dikali 3, tinggi tetap", "Panjang dikali 1,5, lebar dikali 2, tinggi tetap"]
+        },
+        { 
+            type: "Pilihan Ganda Kompleks", 
+            q: "Ayah menempuh jarak 150 km dengan kecepatan 60 km/jam. Beliau berangkat pukul 07.00 dan istirahat 30 menit. Manakah pernyataan yang BENAR? (Pilih semua yang menurutmu benar)", 
+            options: ["Waktu tempuh murni Ayah adalah 2,5 jam", "Ayah tiba di tujuan pada pukul 10.00", "Total durasi perjalanan Ayah adalah 150 menit"], 
+            a: ["Waktu tempuh murni Ayah adalah 2,5 jam", "Ayah tiba di tujuan pada pukul 10.00"]
+        },
+        { 
+            type: "Benar / Salah", 
+            q: "Kasus: Seorang peternak memiliki tangki berisi susu sebanyak 0,6 hektoliter. Susu tersebut akan dikemas dalam botol berkapasitas 2 liter. Manakah analisis mana yang BENAR?", 
+            options: ["Volume susu di dalam tangki peternak tersebut adalah 60 liter.", "Peternak dapat mengisi tepat 30 botol hingga tangki kosong.", "Jika 5 botol terjual, isi tangki berkurang sebanyak 10%."], 
+            a: ["Volume susu di dalam tangki peternak tersebut adalah 60 liter.", "Peternak dapat mengisi tepat 30 botol hingga tangki kosong."]
+        },
+        { 
+            type: "Pilihan Ganda", 
+            q: "Dina bersepeda dengan kecepatan rata-rata 15 km/jam selama 20 menit. Berapakah jarak yang ditempuh oleh Dina?", 
+            options: ["3 km", "5 km", "7,5 km"], 
+            a: "5 km"
+        },
+        { 
+            type: "Benar / Salah", 
+            q: "Analisis Kasus Kalender: Tentukan pernyataan mengenai penanggalan masehi yang BENAR?", 
+            options: ["Bulan Juli dan Agustus sama-sama memiliki jumlah hari sebanyak 31 hari.", "Selisih waktu antara 30 April ke 10 Mei adalah 11 hari.", "Satu minggu penuh terdiri dari 168 jam."], 
+            a: ["Bulan Juli dan Agustus sama-sama memiliki jumlah hari sebanyak 31 hari.", "Satu minggu penuh terdiri dari 168 jam."]
+        },
+        { 
+            type: "Pilihan Ganda", 
+            q: "Volume sebuah balok adalah 40 m³. Jika panjangnya diperbesar 2 kali dan lebarnya diperbesar 2 kali, sedangkan tingginya diperkecil menjadi 1/4 (seperempat), berapakah volume barunya?", 
+            options: ["10 m³", "40 m³", "160 m³"], 
+            a: "40 m³"
+        },
+        { 
+            type: "Benar / Salah", 
+            q: "Kasus Kecepatan: Sebuah kendaraan melaju dengan kecepatan 80 km/jam. Tentukan analisis mana yang BENAR?", 
+            options: ["Dalam waktu 15 menit, kendaraan tersebut menempuh jarak 20 km.", "Jika menempuh jarak 40 km, waktu yang dibutuhkan adalah 30 menit.", "Rumus untuk mencari waktu adalah Kecepatan dibagi Jarak."], 
+            a: ["Dalam waktu 15 menit, kendaraan tersebut menempuh jarak 20 km.", "Jika menempuh jarak 40 km, waktu yang dibutuhkan adalah 30 menit."]
         }
+    ];
 
-        setTimeout(() => {
-            currentQuestionIndex++;
-            if(currentQuestionIndex < allQuestions[currentPacket].length) {
-                showQuestion();
-            } else {
-                finishQuiz();
-            }
-        }, 1500);
-    }
+    let currentIdx = 0;
+    let userAnswers = new Array(questions.length).fill(null);
 
-    function finishQuiz() {
-        document.getElementById('page-quiz').classList.add('hidden');
-        document.getElementById('page-result').classList.remove('hidden');
-        document.getElementById('score-text').innerText = score.toFixed(0);
+    function renderQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('current-q-count').innerText = `Soal ${currentIdx + 1} dari ${questions.length}`;
+        document.getElementById('display-number').innerText = `SOAL #${currentIdx + 1}`;
+        document.getElementById('q-badge').innerText = q.type;
+        document.getElementById('q-text').innerText = q.q;
         
-        // KIRIM DATA KE GOOGLE SHEETS
-        const formData = new URLSearchParams();
-        formData.append("nama", currentUser.nama);
-        formData.append("kelas", currentUser.kelas);
-        formData.append("absen", currentUser.absen);
-        formData.append("paket", currentPacket);
-        formData.append("skor", score.toFixed(0));
+        const optionsArea = document.getElementById('q-options');
+        optionsArea.innerHTML = '';
+        
+        q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            if (userAnswers[currentIdx] && (Array.isArray(userAnswers[currentIdx]) ? userAnswers[currentIdx].includes(opt) : userAnswers[currentIdx] === opt)) {
+                btn.classList.add('selected');
+            }
+            btn.innerText = opt;
+            btn.onclick = () => selectOption(btn, q.type);
+            optionsArea.appendChild(btn);
+        });
 
-        fetch(SCRIPT_URL, { method: 'POST', body: formData })
-        .then(res => document.getElementById('status-upload').innerText = "Data berhasil disimpan!")
-        .catch(err => document.getElementById('status-upload').innerText = "Gagal mengirim data.");
+        // Toggle buttons
+        const isLast = currentIdx === questions.length - 1;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-skip').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+        
+        updateProgressBar();
     }
+
+    function selectOption(el, type) {
+        if (type === "Pilihan Ganda") {
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        }
+        el.classList.toggle('selected');
+    }
+
+    function saveAndNext(isAnswering) {
+        const selected = Array.from(document.querySelectorAll('.option-btn.selected')).map(b => b.innerText);
+        if (isAnswering && selected.length === 0) {
+            alert("Pilih jawaban atau tekan 'Lewati Soal'");
+            return;
+        }
+        
+        userAnswers[currentIdx] = selected.length > 0 ? (questions[currentIdx].type === "Pilihan Ganda" ? selected[0] : selected) : null;
+        
+        currentIdx++;
+        renderQuestion();
+    }
+
+    function finalSubmit() {
+        const selected = Array.from(document.querySelectorAll('.option-btn.selected')).map(b => b.innerText);
+        userAnswers[currentIdx] = selected.length > 0 ? (questions[currentIdx].type === "Pilihan Ganda" ? selected[0] : selected) : null;
+
+        let totalScore = 0;
+        questions.forEach((q, i) => {
+            const userAns = userAnswers[i];
+            if (userAns) {
+                if (Array.isArray(q.a)) {
+                    if (JSON.stringify(userAns.sort()) === JSON.stringify(q.a.sort())) totalScore++;
+                } else {
+                    if (userAns === q.a) totalScore++;
+                }
+            }
+        });
+
+        showResult(totalScore);
+    }
+
+    function updateProgressBar() {
+        const percent = (currentIdx / questions.length) * 100;
+        document.getElementById('progress-fill').style.width = percent + '%';
+    }
+
+    function showResult(score) {
+        document.getElementById('quiz-wrapper').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'block';
+        document.getElementById('score-val').innerText = (score / questions.length) * 100;
+        document.getElementById('final-stats').innerText = `Anda menjawab benar ${score} dari ${questions.length} soal.`;
+    }
+
+    renderQuestion();
 </script>
 </body>
 </html>
